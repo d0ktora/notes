@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <main>
+        <div class='search-container'>
+            <div class='search'>
+                <input type='text' id='search-input'></input>
+                <i class='fas fa-search'></i>
+            </div>
+            <div id='search-results'> </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
+

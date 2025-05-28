@@ -1,0 +1,108 @@
+form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+form .tags{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+form #taglist{
+    display: flex;
+    column-gap:4px;
+    row-gap: 2px;
+    flex-flow: row wrap;
+}
+
+form .tag:not(:last-of-type) p::after{
+    content:',';
+}
+
+form .tag{
+    list-style-type: none;
+    border-radius: 10px;
+    overflow: hidden;
+    width: fit-content;
+}
+form .tag p,
+form .tag input{
+    padding: 4px;
+}
+
+form .display{
+    flex: 10 1;
+}
+
+.display {
+  border: 1px solid #444;
+    border-radius: var(--br);
+}
+
+.display header{
+    padding: 8px;
+    border-bottom: 1px solid #444;
+    background: #2c2c2c;
+}
+.display .header-toggle{
+    width: fit-content;
+    background: #4c4c4c;
+    border: 1px solid #666;
+    border-radius: 6px;
+    display: flex;
+    overflow: hidden;
+}
+.display .header-toggle > button{
+    flex: 1 1 50%;
+    color:var(--col-fg);
+    background: none;
+    border: none;
+    padding: 4px 8px;
+}
+.display .header-toggle > button.active{
+    background: var(--col-bg);
+    border-radius: 8px;
+
+}
+#editor{
+    line-height: 1.5rem;
+    padding: 8px;
+    resize: none;
+    height: 100%;
+    width: 100%;
+    font-size: var(--fs-n);
+    tab-size: 4;
+    background: none;
+    border: none;
+    color:var(--col-fg);
+    outline: none;
+}
+
+#finish{
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    gap:5px;
+    align-items: center;
+    background: green;
+    color:var(--col-fg);
+    border:none;
+    border-radius: var(--br);
+    cursor: pointer;
+}
+#finish.disabled{
+    background: #aaa;
+    color: #666;
+    box-shadow: inset 1px 5px 4px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+}
+
+#preview{
+    padding: 8px;
+}
