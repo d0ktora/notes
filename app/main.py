@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import os
-import re
 
 DB_PATH = os.path.join('data', 'notes.db')
 app = Flask(__name__)
@@ -54,6 +53,17 @@ def edit_doc(writeup_id):
     else:
         return "Writeup not found", 404
 
+@app.route('/delete/<int:writeup_id>',methods=["POST"])
+def delete_doc(writeup_id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute('DELETE FROM writeups WHERE id = ?', (writeup_id,))
+    conn.commit()
+    conn.close()
+
+    return "",200
+
 @app.route('/doc/<int:writeup_id>')
 def view_writeup(writeup_id):
     conn = sqlite3.connect(DB_PATH)
@@ -68,6 +78,17 @@ def view_writeup(writeup_id):
         return render_template('doc.html', title=title, content=content)
     else:
         return "Writeup not found", 404
+
+@app.route('/docs')
+def list_writeups():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT title, tags, created_at,id FROM writeups ORDER BY created_at DESC')
+    rows = cursor.fetchall()
+    conn.close()
+
+    return render_template('docs.html', items=rows)
 
 @app.route('/search')
 def search_writeups():
@@ -145,7 +166,6 @@ def init_db():
 
     conn.commit()
     conn.close()
-
     
 if __name__ == '__main__':
     init_db();

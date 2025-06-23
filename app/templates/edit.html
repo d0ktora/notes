@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>New</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/new.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/writeup.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
@@ -26,16 +27,16 @@
             <div class="display">
                 <header>
                     <div class='header-toggle'>
-                    <button type='button'> Edit </button>
+                    <button type='button' class='active'> Edit </button>
                     <button type='button'> Preview </button>
                     </div>
+                    <button id="finish" type='button'><i class='fas fa-check'></i>Done</button>
                 </header>
                     <textarea name="editor" id="editor">{{content}}</textarea>
                 <div id="preview" class='markdown-content'>
 
                 </div>
             </div>
-            <button id="finish" type='button'><i class='fas fa-check'></i>Done</button>
         </form>
         
     </main>

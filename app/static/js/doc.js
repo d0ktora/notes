@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         copyBtn.textContent = 'Copy';
         copyBtn.type = 'button';
         copyBtn.onclick = () => {
-          navigator.clipboard.writeText(codeEl.textContent);
+          navigator.clipboard.writeText(codeEl.textContent.trimEnd("\n"));
           copyBtn.textContent = 'Copied!';
           setTimeout(() => (copyBtn.textContent = 'Copy'), 1500);
         };

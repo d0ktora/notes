@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All documents</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/docs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hljs.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <main>
+        <header class="list-controls">
+            <input type="text" class="filter" placeholder="Enter keyword :">
+            <button class="select">Select</button>
+            <button class="select-all">Select All</button>
+            <button class="delete-selected">Delete Selected</button>
+        </header>
+        <ul class="document-list">
+            {% if items|length < 1 %}
+                <div style="margin-top:20px">No entries ...</div>
+            {% endif %}
+        {% for item in items %}
+            <li class="document">
+                <a href="/doc/{{ item[3] }}">{{ item[0] }}
+                    <div>{{ item[1] }}</div>
+                    <div>{{ item[2] }}</div>
+                </a>
+                <div class="buttons">
+                    <a href="/edit/{{ item[3] }}" class="edit">Edit</a>
+                    <button class="delete">Delete</button>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/highlight.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/docs.js') }}"></script>
+</body>
+</html>
+
+

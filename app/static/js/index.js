@@ -76,7 +76,7 @@ function highlightText(text, query) {
 }
 
   // Bind with debounce
-  searchInput.addEventListener('input', debounce((e) => {
+  searchInput?.addEventListener('input', debounce((e) => {
     searchWriteups(e.target.value);
   }, 300));
 

@@ -1,0 +1,116 @@
+.document-list {
+    list-style: none;
+    display: grid;
+    gap:12px;
+}
+
+body:has(.select.active) .document-list > li > a {
+    pointer-events: none;
+    cursor:auto;
+}
+
+.document-list > li {
+    display: flex;
+    gap:20px;
+    justify-content: space-between;
+    position:relative;
+    padding: 12px;
+}
+.document-list > li.filtered{
+    display: none;
+}
+.document-list > li:hover::before{
+    content: '›';
+    font-weight:bold;
+    font-size: 1.2rem;
+    color:yellow;
+    position:absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.document-list > li.selected::after{
+    content: '';
+    background: green;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position:absolute;
+    left: -40px;
+    transform: translateY(-50%);
+}
+.document-list > li > a{
+    color: var(--color-fg);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+.document-list > li > a > div{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.document-list > li > a > div:last-of-type{
+    margin-top: auto;
+}
+.document-list > li:nth-of-type(even) {
+    background: #232323;
+}
+
+.buttons {
+    display: grid;
+    width: fit-content;
+    gap:8px;
+}
+.buttons > * {
+    text-decoration: none;
+    border: 1px solid #aaa;
+    padding: 6px 8px;
+    font-size: 1rem;
+    color: var(--color-fg);
+    background: var(--color-bg);
+    text-align: center;
+    transition: background 0.2s ease ;
+    cursor: pointer;
+}
+.buttons > a:hover {
+    color:yellow;
+}
+
+.buttons > button:hover {
+    color:red;
+}
+
+
+.list-controls{
+    background: black;
+    padding: 6px;
+    border-radius: 30px;
+    display: flex;
+    gap:5px;
+}
+.list-controls > button{
+    text-wrap: nowrap;
+    padding: 8px 10px;
+    border:1px solid #666;
+    background:none;
+    color:var(--color-fg);
+    border-radius: 30px;
+    cursor:pointer;
+    font-size: 0.8rem;
+    font-weight:bold;
+}
+.list-controls > button.active{
+    border-color: green;
+}
+.list-controls input{
+    color:var(--color-fg);
+    outline:none;
+    background: #101110;
+    width:100%;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border:none;
+}

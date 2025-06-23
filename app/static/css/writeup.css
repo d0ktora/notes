@@ -1,12 +1,32 @@
 .markdown-content{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     line-height: 1.5rem;
 }
 .markdown-content h1{
     text-align: center;
+    font-size: 2.3rem;
 }
+.markdown-content h1,
+.markdown-content h2
+{
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    margin: 12px 0;
+}
+
+.markdown-content h3,
+.markdown-content h4{
+    margin-top: 20px;
+}
+
+.markdown-content hr{
+    margin: 32px 0;
+    height: 5px;
+    background: #3d4d3d;
+    border: none;
+}
+
 .markdown-content ul{
     margin-left: 16px;
 }
@@ -37,8 +57,6 @@ li:has(input[type="checkbox"]) {
     word-break: break-all;
     hyphens: auto;
 }
-
-
 
 code {
     max-height: 25rem;

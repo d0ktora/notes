@@ -3,6 +3,7 @@ form{
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow-y: hidden;
 }
 
 form .tags{
@@ -45,6 +46,7 @@ form .display{
     padding: 8px;
     border-bottom: 1px solid #444;
     background: #2c2c2c;
+    display: flex;
 }
 .display .header-toggle{
     width: fit-content;
@@ -81,20 +83,21 @@ form .display{
 }
 
 #finish{
-    position: fixed;
-    top: 100px;
-    right: 40px;
+    margin-left:auto;
     padding: 6px 10px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     gap:5px;
     align-items: center;
     background: green;
     color:var(--col-fg);
     border:none;
-    border-radius: var(--br);
+    border-radius: 10px;
     cursor: pointer;
+}
+#finish i {
+    font-size: 0.7rem;
 }
 #finish.disabled{
     background: #aaa;
